@@ -6,11 +6,39 @@ $(function() {
   $(document).on("view:ProductPage", function() {
     console.info("view:Productpage is loading....");
   });
+  $(document).on("view:Basket", function() {
+    console.info("view:basket is loading....");
+  });
+  $(document).on("view:checkout", function() {
+    console.info("view:checkout is loading....");
+  });
+  $(document).on("view:Delivery", function() {
+    console.info("view:Delivery is loading....");
+  });
+  $(document).on("view:payment", function() {
+    console.info("view:Payment is loading....");
+  });
+  $(document).on("conversion", function() {
+    console.info("user clicked in place an order button");
+  });
   if (pathname === "/detail.html" || pathname === "/") {
     $(document).trigger("view:ProductPage");
   } else if (pathname === "/index.html") {
     $(document).trigger("view:HomePage");
+  } else if (pathname === "/basket.html") {
+    $(document).trigger("view:Basket");
+  } else if (pathname === "/checkout1.html") {
+    $(document).trigger("view:checkout");
+  } else if (pathname === "/checkout2.html") {
+    $(document).trigger("view:Delivery");
+  } else if (pathname === "/checkout3.html") {
+    $(document).trigger("view:payment");
+  } else if (pathname === "/checkout4.html") {
+    $(".box-footer [type=submit]")
+      .on("click")
+      .trigger("conversion");
   }
+
   $(".shop-detail-carousel").owlCarousel({
     items: 1,
     thumbs: true,
